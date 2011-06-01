@@ -95,30 +95,56 @@
 <h3>Mixins may contain state, (traditional) traits don't.</h3>
 
 <h3>Mixins use "implicit conflict resolution", traits use "explicit conflict resolution"</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/9">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/9">
+<h2>Mixins</h2>
+
+<pre class="sh_Ruby"><code>module Logger
+  def log(message)
+    puts message
+  end
+end
+
+class Foo
+  include Logger
+end.ancestors # =&gt; [Foo, Logger, ... ]</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/10">
+<h2>Traits</h2>
+
+<pre><code>    @@@ Ruby
+    module Logger
+      def log(message)
+        puts message
+      end
+    end
+
+    class Foo
+      mix Logger
+    end.ancestors # =&gt; [Foo, Object, ... ]
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/11">
 <h2>The revenge of method missing</h2>
 
 <h3>Paolo Perrotta</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/10">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/12">
 <h2>Be RESTful. Be Web 2.0. But don't mix it</h2>
 
 <h3>Nick Sutterer</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/11">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/13">
 <h3><em>(..) What if your GUI simply is a GUI, talking to <strong>REST backends</strong> behind the scenes? What if your backend is not a monolithic beast but <strong>multiple applications that are exposed as REST services</strong>?</em></h3>
 
 <h3><em>It is a common misapprehension that GUI and REST backend have to be (..) highly coupled system?</em></h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/12">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/14">
 <h2>Roar</h2>
 
 <h3>https://github.com/apotonick/roar</h3></div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/13">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/15">
 <h2>Model</h2>
 
 <pre class="sh_Ruby"><code>class Album &lt; ActiveRecord::Base
   has_many :songs
   ..
 end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/14">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/16">
 <h2>Representer</h2>
 
 <pre class="sh_Ruby"><code>module Representer
@@ -134,7 +160,7 @@ end</code></pre></div>
     end
   end
 end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/15">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/17">
 <h2>Controller</h2>
 
 <pre class="sh_Ruby"><code>class AlbumsController &lt; ActionController::Base
@@ -149,7 +175,7 @@ end</code></pre></div>
   end
 
 end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/16">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/18">
 <h2>Presenter pattern for Rails</h2>
 
 <h3>Roar</h3>
@@ -159,7 +185,7 @@ end</code></pre></div>
 <h3>Apotomo</h3>
 
 <h3>?</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/17">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/19">
 <h2>Presenter pattern for Rails</h2>
 
 <h3>Roar</h3>
@@ -169,19 +195,19 @@ end</code></pre></div>
 <h3>Apotomo</h3>
 
 <h3><strong>MAUI</strong> :)</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/18">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/20">
 <h2>Bridging the gap - Using JavaScript in Rails to write DRY rich client applications</h2>
 
 <h3>Andreas Haller, Thorben Schr&#xF6;der</h3></div>
-</div><div class="slide" data-transition="fade"><div class="content center" ref="one/01_slide/19">
+</div><div class="slide" data-transition="fade"><div class="content center" ref="one/01_slide/21">
 <p><img src="file/home/marek/projects/euruko2011_roundup/euruko2011/one/bg.jpg" alt="bg"/></p></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/20">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/22">
 <h3><em>"While building a HTML5 offline app using BackBone.js, we had to re-write a bunch of methods from our Rails models in JavaScript to be used on the client (..)"</em></h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/21">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/23">
 <h3>theRubyRacer (Embed the V8 Javascript interpreter into Ruby)</h3>
 
 <h3>CommonJS (organize your JS and Ruby code)</h3></div>
-</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/22">
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="one/01_slide/24">
 <h2>Example</h2>
 
 <pre class="sh_Ruby"><code>class MAUI::Component::Tree
@@ -196,21 +222,21 @@ end</code></pre></div>
     cxt.eval("tree.render(this.cmp);")
   end
 end</code></pre></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/23">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/25">
 <h2>Endless fun with Arduino and Eventmachine</h2>
 
 <h3>Bodo Tasche</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/24">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/26">
 <h2>Getting Hands On with Adhearsion</h2>
 
 <h3>Ben Langfeld, Ben Klang</h3></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/25">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/27">
 <h2>Sentiment analysis of Twitter messages in Ruby</h2>
 
 <h3>Mateusz Dro&#x17C;d&#x17C;y&#x144;ski</h3></div>
-</div><div class="slide" data-transition="none"><div class="content center" ref="one/01_slide/26">
+</div><div class="slide" data-transition="fade"><div class="content center" ref="one/01_slide/28">
 <p><img src="file/home/marek/projects/euruko2011_roundup/euruko2011/one/matt.jpg" alt="md"/></p></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/27">
+</div><div class="slide" data-transition="none"><div class="content" ref="one/01_slide/29">
 <h2>Writing your own programming language to understand Ruby better</h2>
 
 <h3>Jos&#xE9; Valim</h3></div>
